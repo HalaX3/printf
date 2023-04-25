@@ -186,7 +186,7 @@ int print_binary(va_list types, char buffer[], int flags,
 	}
 	for (itr = 0, sum = 0, counter = 0; itr < 32; itr++)
 	{
-		sum += a[itr];
+		sum += arr[itr];
 		if (sum || itr == 31)
 		{
 			char y = '0' + arr[itr];
