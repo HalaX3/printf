@@ -176,7 +176,7 @@ int print_rot13string(va_list types, char buffer[],
 	{
 		for (itr2 = 0; in[itr2]; itr2++)
 		{
-			if (in[itr2] == str[itr])
+			if (in[itr2] == s[itr])
 			{
 				c = out[itr2];
 				write(1, &c, 1);
