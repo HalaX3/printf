@@ -223,7 +223,7 @@ int write_pointer(char buffer[], int index, int length,
 			buffer[--index] = 'x';
 			buffer[--index] = '0';
 			if (extra_character)
-				buffer[--index] = extra_ character;
+				buffer[--index] = extra_character;
 			return (write(1, &buffer[index], length) + write(1, &buffer[3], x - 3));
 		}
 		else if (!(flag & F_MINUS) && padding == ' ')
@@ -231,13 +231,13 @@ int write_pointer(char buffer[], int index, int length,
 			buffer[--index] = 'x';
 			buffer[--index] = '0';
 			if (extra_character)
-				buffer[--index] = extra_ character;
+				buffer[--index] = extra_character;
 			return (write(1, &buffer[3], x - 3) + write(1, &buffer[index], length));
 		}
 		else if (!(flag & F_MINUS) && padding == '0')/* extra c to left of padd */
 		{
-			if (extra_ character)
-				buffer[--padding_start] = extra_ character;
+			if (extra_character)
+				buffer[--padding_start] = extra_character;
 			buffer[1] = '0';
 			buffer[2] = 'x';
 			return (write(1, &buffer[padding_start], x - padding_start) +
@@ -246,7 +246,7 @@ int write_pointer(char buffer[], int index, int length,
 	}
 	buffer[--index] = 'x';
 	buffer[--index] = '0';
-	if (extra_character
-		buffer[--index] = extra_ character;
+	if (extra_character)
+		buffer[--index] = extra_character;
 	return (write(1, &buffer[index], BUFFER_SIZE - index - 1));
 }
