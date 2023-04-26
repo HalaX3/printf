@@ -14,7 +14,7 @@
  */
 int handle_write_char(char character, char buffer[],
 	int flag, int width, int precision, int size)
-{ /* char is stored at left and paddind at buffer's right */
+{
 	int x = 0;
 	char padding = ' ';
 
@@ -153,7 +153,6 @@ int write_unsgnd(int is_negative, int index,
 	char buffer[],
 	int flag, int width, int precision, int size)
 {
-	/* The number is stored at the bufer's right and starts at position x */
 	int length = BUFFER_SIZE - index - 1, x = 0;
 	char padding = ' ';
 
@@ -161,7 +160,7 @@ int write_unsgnd(int is_negative, int index,
 	UNUSED(size);
 
 	if (precision == 0 && index == BUFFER_SIZE - 2 && buffer[index] == '0')
-		return (0); /* printf(".0d", 0)  no char is printed */
+		return (0);
 
 	if (precision > 0 && precision < length)
 		padding = ' ';
@@ -182,11 +181,11 @@ int write_unsgnd(int is_negative, int index,
 
 		buffer[x] = '\0';
 
-		if (flag & F_MINUS) /* Asign extra char to left of buffer [buffer>padding]*/
+		if (flag & F_MINUS)
 		{
 			return (write(1, &buffer[index], length) + write(1, &buffer[0], x));
 		}
-		else /* Asign extra char to left of padding [padding>buffer]*/
+		else
 		{
 			return (write(1, &buffer[0], x) + write(1, &buffer[index], length));
 		}
@@ -218,7 +217,7 @@ int write_pointer(char buffer[], int index, int length,
 		for (x = 3; x < width - length + 3; x++)
 			buffer[x] = padding;
 		buffer[x] = '\0';
-		if (flag & F_MINUS && padding == ' ')/* Asign extra char to left of buffer */
+		if (flag & F_MINUS && padding == ' ')
 		{
 			buffer[--index] = 'x';
 			buffer[--index] = '0';
@@ -234,7 +233,7 @@ int write_pointer(char buffer[], int index, int length,
 				buffer[--index] = extra_character;
 			return (write(1, &buffer[3], x - 3) + write(1, &buffer[index], length));
 		}
-		else if (!(flag & F_MINUS) && padding == '0')/* extra c to left of padd */
+		else if (!(flag & F_MINUS) && padding == '0')
 		{
 			if (extra_character)
 				buffer[--padding_start] = extra_character;
