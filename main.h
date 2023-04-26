@@ -96,7 +96,7 @@ int print_rot13string(va_list types, char buffer[],
 /* width handler */
 int handle_write_char(char character, char buffer[],
 	int flag, int width, int precision, int size);
-int write_number(int is_positive, int index, char buffer[],
+int write_number(int is_negative, int index, char buffer[],
 	int flag, int width, int precision, int size);
 int write_num(int ind, char bffer[], int flag, int width, int precis,
 	int length, char padding, char extra_character);
