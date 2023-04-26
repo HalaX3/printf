@@ -133,7 +133,7 @@ int print_int(va_list types, char buffer[], int flags,
 		buffer[itr--] = '0';
 
 	buffer[BUFFER_SIZE - 1] = '\0';
-	num = (unsigned long int)num;
+	number = (unsigned long int)num;
 
 	if (num < 0)
 	{
